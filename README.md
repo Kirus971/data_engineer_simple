@@ -2,7 +2,7 @@
 
 ## Senior Data Engineer Platform (Airflow + Kafka + Spark + Iceberg + MinIO + HMS + ClickHouse)
 
-Production-like локальный стенд для демонстрации навыков Senior Data Engineer:
+Production-like локальный стенд :
 
 - **Orchestration**: Apache Airflow
 - **Streaming**: Kafka
@@ -19,21 +19,20 @@ Production-like локальный стенд для демонстрации н
 
 ### Быстрый старт
 
-1) Предпосылки: Docker Desktop, 8+ GB RAM (лучше 12+), 4+ CPU.
-
-2) Создайте `.env`:
+1. Предпосылки: Docker Desktop, 8+ GB RAM (лучше 12+), 4+ CPU.
+2. Создайте `.env`:
 
 ```bash
 cp .env.example .env
 ```
 
-3) Поднимите стек:
+1. Поднимите стек:
 
 ```bash
 docker compose up -d
 ```
 
-4) UI:
+1. UI:
 
 - **Airflow**: `http://localhost:8080` (login/password см. `.env`)
 - **MinIO Console**: `http://localhost:9001`
@@ -42,7 +41,7 @@ docker compose up -d
 
 ### Пайплайны (пример)
 
-- **`demo_incremental_bronze_silver_gold`**:
+- `**demo_incremental_bronze_silver_gold`**:
   - генерирует изменения “customers” (источник) и кладет в Kafka
   - Spark streaming пишет события в **bronze** Iceberg
   - Spark batch делает **SCD2 merge** в **silver**
@@ -51,11 +50,11 @@ docker compose up -d
 
 ### Где что лежит
 
-- **`docker-compose.yml`**: весь стенд
-- **`airflow/dags/`**: DAG'и
-- **`spark/jobs/`**: Spark jobs (batch/streaming)
-- **`infra/`**: конфиги Iceberg/HMS/Spark/ClickHouse
-- **`scripts/`**: init-скрипты (buckets/topics/tables)
+- `**docker-compose.yml`**: весь стенд
+- `**airflow/dags/**`: DAG'и
+- `**spark/jobs/**`: Spark jobs (batch/streaming)
+- `**infra/**`: конфиги Iceberg/HMS/Spark/ClickHouse
+- `**scripts/**`: init-скрипты (buckets/topics/tables)
 
 ### Заметки
 
